@@ -1,12 +1,11 @@
-# newton practice
 import pytest 
 import numpy as np 
 import warnings
 
 def fun(x):
-    output = x**2 - 4
+    output = x**4 + 16
     return output
-
+    
 def newton_optimize(x, fun): 
     """
     This function takes derivates of a given global function wrt the input x, 
@@ -36,3 +35,8 @@ def newton_optimize(x, fun):
         i += 1
     print('the last round where the derivative is smaller than 0.1**6:', i)
     return x2
+
+def test_check_warn():
+    with pytest.warns(UserWarning, 
+                      match="In the {i}th round, the derivative is 0."):
+        newton_optimize(1001, lambda x: x**4) 
