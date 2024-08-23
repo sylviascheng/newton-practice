@@ -36,3 +36,5 @@ def newton_optimize(x, fun):
         i += 1
     print('the last round where the derivative is smaller than 0.1**6:', i)
     return x2
+
+hahaha
